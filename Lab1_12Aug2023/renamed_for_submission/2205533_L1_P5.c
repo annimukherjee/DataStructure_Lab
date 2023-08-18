@@ -1,5 +1,4 @@
 // 1.5. WAP using pointer, dynamic memory allocation to search an element in an array of n numbers.
-
 // Input: Enter the value of n: 5
 // Enter the elements: 10 20 50 35 22
 // Enter the element to be search: 50
