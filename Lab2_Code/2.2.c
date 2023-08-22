@@ -7,7 +7,13 @@
 int main()
 {
 
-    int a [8];
+    int size;
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    int a[size];
+    // int a [8];
+
 
     for (int i = 0; i < 8; i++)
         scanf("%d", &a[i]);
