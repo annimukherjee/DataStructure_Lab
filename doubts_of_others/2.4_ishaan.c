@@ -23,7 +23,10 @@ int main()
     }
 
     int count = 0;
-    int row_sum, column_sum, row_avg, column_avg = 0;
+    int row_sum = 0;
+    int column_sum = 0;
+    int row_avg = 0;
+    int column_avg = 0;
     
     // Row Sums-----
     for (i = 0; i < m; i++)
@@ -37,7 +40,7 @@ int main()
             if (j == n - 1)
             {
                 row_avg = row_sum / n;
-                printf("Row %d, Sum: %d, Average:%d\n", i + 1, row_sum, row_avg);
+                printf("Row %d, Sum: %d, Average: %d\n", i + 1, row_sum, row_avg);
                 row_sum = 0;
                 row_avg = 0;
             }
@@ -63,4 +66,3 @@ int main()
     printf("The number of non-zero elements:%d\n", count);
     return 0;
 }
-
