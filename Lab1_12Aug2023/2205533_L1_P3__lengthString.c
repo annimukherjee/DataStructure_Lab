@@ -10,7 +10,7 @@ int main()
     int count = 0;
 
     printf("Enter the string: ");
-    scanf("%s", str);
+    scanf("%[^\n]", str);
 
     ptr = str;
 

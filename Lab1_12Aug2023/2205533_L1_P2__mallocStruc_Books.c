@@ -34,6 +34,7 @@ int main()
 
     for (int i = 0; i < n; i++)
     {
+        printf("\nBook %d: \n",i+1);
         char c;
         printf("Enter the title: ");
         scanf("%s%c", ptr[i].title, &c);
@@ -49,7 +50,7 @@ int main()
     }
 
     char particular_author[30];
-    printf("Enter the particular author name: ");
+    printf("\nEnter the particular author name: ");
     scanf("%s", particular_author);
 
     for (int i = 0; i < n; i++)
@@ -61,7 +62,7 @@ int main()
             printf("Title: %s\n", ptr[i].title);
             printf("Author: %s\n", ptr[i].author);
             printf("Publication: %s\n", ptr[i].publication);
-            printf("Price: %f\n", ptr[i].price);
+            printf("Price: %.2f\n", ptr[i].price);
         }
     }
     return 0;

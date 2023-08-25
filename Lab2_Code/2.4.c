@@ -14,7 +14,7 @@ int main()
             scanf("%d", &a[i][j]);
         }
     }
-    printf("The  matrix:\n");
+    printf("\nThe  matrix:\n");
     for (i = 0; i < m; i++)
     {
         for (j = 0; j < n; j++)
@@ -30,6 +30,8 @@ int main()
 
     int col_counter=0;
     
+
+    printf("\nRows-----------------\n");
     for (i = 0; i < m; i++)
     {
         col_counter++;
@@ -46,7 +48,7 @@ int main()
             {
                 row_avg = row_sum / m;
 
-                printf("Row %d, Sum: %d, Average:%d\n", i + 1, row_sum, row_avg);
+                printf("Row %d...\nSum: %d,\nAverage:%d\n\n", i + 1, row_sum, row_avg);
                 row_sum = 0;
                 row_avg = 0;
             }
@@ -57,7 +59,7 @@ int main()
         
     }
 
-
+    printf("\n\nColumns-----------------------\n");
     for (i = 0; i < m; i++)
     {
         for (j = 0; j < n; j++)
@@ -65,7 +67,7 @@ int main()
             column_sum = column_sum + a[j][i];
         }
 
-        printf("Col %d, Sum: %d, Average: %d\n", i+1, column_sum, column_sum/n);
+        printf("Col %d...\nSum: %d,\nAverage: %d\n\n", i+1, column_sum, column_sum/n);
         column_sum = 0;
     }
 

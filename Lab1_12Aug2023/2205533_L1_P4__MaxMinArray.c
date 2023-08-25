@@ -11,7 +11,7 @@ int main()
 {
     int n, *array;
 
-    printf("What is the length of your array: ");
+    printf("Length of array: ");
     scanf("%d", &n);
 
     array = (int *)malloc(n * sizeof(int));

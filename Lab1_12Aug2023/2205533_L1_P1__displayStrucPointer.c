@@ -17,32 +17,33 @@ typedef struct studentStruc STUD;
 
 int main()
 {
-    printf("hello world\n");
-
     STUD s1, *ptr;
 
     ptr = &s1;
     char newline;
 
+
+    printf("\nGive Input:\n\n");
     // INPUTS---------------------------------
     printf("Enter roll: ");
     scanf("%d", &s1.roll);
 
     printf("Enter name: ");
-    scanf("%s%c", s1.name, &newline);
+    scanf("%c%[^\n]", &newline, s1.name);
 
-    printf("Enter gender(M/F): ");
-    scanf("%c", &s1.gender);
+
+    printf("Enter gender (M/F): ");
+    scanf("%c%c",&newline, &s1.gender);
 
     printf("Enter marks: ");
     scanf("%f", &s1.marks);
 
     // OUTPUTS---------------------------------
-    printf("\n\nDisplaying data::\n");
+    printf("\n\nDisplaying data:\n\n");
     printf("Entered roll: %d\n", ptr->roll);
     printf("Entered name: %s\n", ptr->name);
     printf("Entered gender: %c\n", ptr->gender);
-    printf("Entered marks: %f\n", ptr->marks);
+    printf("Entered marks: %.2f\n", ptr->marks);
 
     return 0;
 }

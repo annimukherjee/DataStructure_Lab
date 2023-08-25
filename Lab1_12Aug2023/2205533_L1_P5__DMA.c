@@ -16,7 +16,8 @@ int main()
     scanf("%d", &n);
 
     array = (int *)malloc(n * sizeof(int));
-
+    
+    printf("Enter the elements: ");
     for (int i = 0; i < n; i++)
         scanf("%d", &array[i]);
 
