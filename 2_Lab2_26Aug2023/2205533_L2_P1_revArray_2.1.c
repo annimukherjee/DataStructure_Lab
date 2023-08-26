@@ -19,6 +19,7 @@ int main()
     array = (int*)malloc(n*sizeof(int));
     revArray=(int*)malloc(n*sizeof(int));
 
+    printf("\nEnter the array: \n");
     for (int i = 0; i < n; i++)
         scanf("%d", &array[i]);
 
@@ -26,14 +27,11 @@ int main()
         revArray[n-i-1] = array[i];
 
 
-    printf("The array taken as input is: ");
+    printf("\nInputted array: \n");
     for (int i = 0; i < n; i++)
         printf("%d ", array[i]);
     
-    printf("\n");
-
-
-    printf("The reversed array is: ");
+    printf("\n\nReversed array: \n");
     for (int i = 0; i < n; i++)
         printf("%d ", revArray[i]);
    

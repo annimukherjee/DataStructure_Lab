@@ -12,12 +12,21 @@ int main()
     scanf("%d", &size);
 
     int a[size];
-    // int a [8];
+    // int a[3] = {10,44,89};
 
 
+    printf("Enter the elements: \n");
     for (int i = 0; i < size; i++)
         scanf("%d", &a[i]);
+    // size = 3;
 
+    
+    printf("\nThe original array:\n");
+    for (int i = 0; i < size; i++)
+        printf("%d ", a[i]);
+
+
+    printf("\n\nThe no duplicate array:\n");
     for (int i = 0; i < size; i++)
     {
         int flag = 0;

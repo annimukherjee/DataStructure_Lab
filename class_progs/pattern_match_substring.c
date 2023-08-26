@@ -12,39 +12,37 @@ int main()
 
     printf("Enter the substring to be searched:\n");
     scanf("%[^\n]", search);
-    
+
     int pos = patternMatch(str, search);
     if (pos == -1)
-    {
         printf("\nNot found\n");
-    }
     else
-    {
         printf("\nPattern found and matched\n");
-    }
+
     return 0;
 }
 
-int patternMatch(char *s, char *p)
+int patternMatch(char *str, char *ptrn)
 {
     int i, j, k;
-    int len1 = strlen(s);
-    int len2 = strlen(p);
 
-    for (i = 0; i < (len1 - len2); i++)
+    int slen = strlen(str);
+    int plen = strlen(ptrn);
+
+    for (i = 0; i < (slen - plen); i++)
     {
         j = 0;
         k = i;
-        while ((s[k] == p[j]) && (j < len2))
+
+        while ((str[k] == ptrn[j]) && (j < plen))
         {
-            j++;
-            k++;
+            j += 1;
+            k += 1;
         }
 
-        if (j == len2)
-        {
+        if (j == plen)
             return i;
-        }
     }
+
     return -1;
 }

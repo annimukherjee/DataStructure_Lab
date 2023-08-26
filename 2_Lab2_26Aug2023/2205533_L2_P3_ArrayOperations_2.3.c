@@ -4,7 +4,9 @@
 // c. Delete an element
 // d. Merging elements of two arrays
 // Input: Enter the value of n: 5
-// Enter the elements: 10 20 35 45 30 1. Traverse
+// Enter the elements: 10 20 35 45 30 
+
+// 1. Traverse
 // 2. Insert
 // 3. Delete
 // 4. Merge
@@ -15,10 +17,10 @@
 #include <stdio.h>
 #include<stdlib.h>
 
-void traverse(int x[], int n);
-void insert(int x[], int n, int loc, int elem);
-void delete(int x[], int n, int loc);
-void merge(int x[], int n, int* y, int m, int* z, int k);
+void traverse(int arr[], int n);
+void insert(int arr[], int n, int loc, int elem);
+void delete(int arr[], int n, int loc);
+void merge(int arr[], int n, int* y, int m, int* z, int k);
 
 int main()
 {
@@ -30,10 +32,9 @@ int main()
 
     printf("Enter the elements:\n");
     for (i = 0; i < n; i++)
-    {
         scanf("%d", &a[i]);
-    }
-    printf("1. Traverse\n");
+    
+    printf("\n1. Traverse\n");
     printf("2. Insert\n");
     printf("3. Delete\n");
     printf("4. Merge\n");
@@ -56,15 +57,17 @@ int main()
         break;
 
     case 2:
-        printf("Enter the position and the element to be added:\n");
+
+        printf("\n----\nInsertion at an index\n");
+        printf("Enter the position and the element to be added (0 indexed):\n");
         scanf("%d %d", &pos, &elem);
-        insert(a, n, pos - 1, elem);
+        insert(a, n, pos, elem);
         break;
 
     case 3:
-        printf("Enter the location to be deleted:\n");
+        printf("Enter the location to be deleted (0 indexed):\n");
         scanf("%d", &pos);
-        delete (a, n, pos - 1);
+        delete (a, n, pos);
         break;
 
     case 4:
@@ -72,80 +75,82 @@ int main()
         scanf("%d", &m);
 
         k = m + n;
-        printf("The size of merged array: %d\n",k);
+        printf("\nThe size of merged array: %d\n",k);
         
         int *b, *c;
 
         b = (int *)malloc(m * sizeof(int));
         c = (int *)malloc(k * sizeof(int));
 
-        printf("Enter the elements of the 2nd array:\n");
+        printf("\nEnter the elements of the 2nd array: ");
         for (i = 0; i < m; i++)
-        {
             scanf("%d", b+i);
-        }
 
         merge(a, n, b, m, c, k);
 
-        free(a);
         free(b);
+        free(c);
         break;
     
     case 5:
+        printf("\nExiting...\n");
         break;
     
     default:
-        printf("\nInvalid Choice!\n");
+        printf("\nInvalid Choice...\n\nExiting...\n");
     }
+
     return 0;
 }
 
 
-void traverse(int x[], int n)
+void traverse(int arr[], int n)
 {
-    int i;
-    for (i = 0; i < n; i++)
-    {
-        printf("%d ", x[i]);
-    }
+    printf("\n-------\nTraversal: \n");
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+
+    printf("\n");
+    
 }
 
-void insert(int x[], int n, int loc, int elem)
+void insert(int arr[], int n, int loc, int elem)
 {
+
+
     int i;
     for (i = n - 1; i > loc; i--)
-    {
-        x[i] = x[i - 1];
-    }
-    x[loc] = elem;
+        arr[i] = arr[i - 1];
+
+    arr[loc] = elem;
     for (i = 0; i < n; i++)
-    {
-        printf("%d ", x[i]);
-    }
+        printf("%d ", arr[i]);
+    
+    printf("\n");
 }
 
-void delete(int x[], int n, int loc)
+void delete(int arr[], int n, int loc)
 {
     int i;
     for (i = loc; i < n; i++)
-    {
-        x[i] = x[i + 1];
-    }
+        arr[i] = arr[i + 1];
+
     n = n - 1;
     for (i = 0; i < n; i++)
-    {
-        printf("%d ", x[i]);
-    }
+        printf("%d ", arr[i]);
+
+    printf("\n");
+    
 }
 
-void merge(int x[], int n, int* y, int m, int* z, int k)
+void merge(int arr[], int n, int* y, int m, int* z, int k)
 {
     int i;
     int c = 0;
 
     for (i = 0; i < n; i++)
     {
-        *(z+c) = x[i];
+        *(z+c) = arr[i];
         c++;
     }
 
@@ -160,7 +165,7 @@ void merge(int x[], int n, int* y, int m, int* z, int k)
     // printf("c is after 2nd loop: %d",c);
     // printf("k is: %d",k);
 
-    printf("Merged array:\n");
+    printf("\nMerged array:\n");
     for (i = 0; i < c; i++)
     {
         printf("%d ", *(z+i));
