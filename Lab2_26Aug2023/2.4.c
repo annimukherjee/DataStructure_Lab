@@ -19,7 +19,7 @@ int main()
     {
         for (j = 0; j < n; j++)
         {
-            printf("%d ", a[i][j]);
+            printf("%4d ", a[i][j]);
         }
         printf("\n");
     }
@@ -48,7 +48,7 @@ int main()
             {
                 row_avg = row_sum / m;
 
-                printf("Row %d...\nSum: %d,\nAverage:%d\n\n", i + 1, row_sum, row_avg);
+                printf("Row %d...\nSum: %d,\nAverage: %d\n\n", i + 1, row_sum, row_avg);
                 row_sum = 0;
                 row_avg = 0;
             }
@@ -60,9 +60,9 @@ int main()
     }
 
     printf("\n\nColumns-----------------------\n");
-    for (i = 0; i < m; i++)
+    for (i = 0; i < n; i++)
     {
-        for (j = 0; j < n; j++)
+        for (j = 0; j < m; j++)
         {
             column_sum = column_sum + a[j][i];
         }
@@ -77,3 +77,4 @@ int main()
     printf("The number of non-zero elements:%d\n", count);
     return 0;
 }
+

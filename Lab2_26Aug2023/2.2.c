@@ -15,10 +15,10 @@ int main()
     // int a [8];
 
 
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < size; i++)
         scanf("%d", &a[i]);
 
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < size; i++)
     {
         int flag = 0;
         for (int j = 0; j < i; j++)
