@@ -45,7 +45,7 @@ int main()
 
     printf("Enter the elements: ");
     for (int i = 0; i < n; i++)
-        scanf("%d", &array[i]);
+        scanf("%d", &(*(array+i)));
 
     int max, min;
     max = array[0];
