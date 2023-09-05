@@ -26,7 +26,7 @@ int main()
         printf("%d ", a[i]);
 
 
-    printf("\n\nThe no duplicate array:\n");
+    printf("\n\nThe array without duplicates\n");
     for (int i = 0; i < size; i++)
     {
         int flag = 0;

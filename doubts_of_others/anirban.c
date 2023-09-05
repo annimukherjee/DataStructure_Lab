@@ -12,23 +12,21 @@ int main()
         printf("Memory allocation failed.\n");
         return 1;
     }
-    
-    
+
     printf("enter the %d elements of the array :\n", n);
     for (i = 0; i < n; i++)
     {
-        scanf("%d", &arr[i]);
+        scanf("%d", arr + i);
     }
-
 
     printf("enter the number you want to search :\n");
     scanf("%d", &num);
 
-
     for (i = 0; i < n; i++)
     {
-        if (arr[i] == num) {
-          
+        if (arr[i] == num)
+        {
+
             flag = 1;
             pos = i;
         }
@@ -44,6 +42,5 @@ int main()
 
     free(arr);
 
-    
     return 0;
 }
