@@ -24,8 +24,6 @@ int main()
         scanf("%d", &a[i][1]);
         printf("Enter value for this position: ");
         scanf("%d", &a[i][2]);
-
-        // scanf("%d %d %d", &a[i][0], &a[i][1], &a[i][2]);
     }
 
     printf("\nInput:\n-------\n");

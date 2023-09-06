@@ -83,7 +83,7 @@ int main()
     printf("Total number of Number of values: ");
     scanf("%d", &b[0][2]);
 
-    if (b[0][0]!=a[0][0] || b[0][1]!=a[0][1])
+    if (b[0][0] != a[0][0] || b[0][1] != a[0][1])
     {
         printf("\nERROR\n-------\nAddition not possible as rows!=cols\n");
         return (-1);
@@ -104,9 +104,6 @@ int main()
         // scanf("%d %d %d", &a[i][0], &a[i][1], &a[i][2]);
     }
 
-    
-    
-
     printf("\nInput:\n-------\n");
     printf("%4c", 'R');
     printf("%6c", 'C');
@@ -122,7 +119,6 @@ int main()
         }
         printf("\n");
     }
-
 
     int matrix1[10][10];
     int r1, c1, nnz1;
