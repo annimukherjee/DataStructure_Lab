@@ -96,6 +96,8 @@ void addSparseMatrices(int mat1[][3], int mat2[][3], int sumMat[][3])
             case '=':
                 sumMat[k][0] = mat1[i][0];
                 sumMat[k][1] = mat1[i][1];
+
+
                 sumMat[k][2] = mat1[i][2] + mat2[j][2];
                 i++;
                 j++;
@@ -103,12 +105,16 @@ void addSparseMatrices(int mat1[][3], int mat2[][3], int sumMat[][3])
             case '<':
                 sumMat[k][0] = mat1[i][0];
                 sumMat[k][1] = mat1[i][1];
+
+
                 sumMat[k][2] = mat1[i][2];
                 i++;
                 break;
             case '>':
                 sumMat[k][0] = mat2[j][0];
                 sumMat[k][1] = mat2[j][1];
+
+
                 sumMat[k][2] = mat2[j][2];
                 j++;
                 break;
@@ -118,12 +124,17 @@ void addSparseMatrices(int mat1[][3], int mat2[][3], int sumMat[][3])
         case '<':
             sumMat[k][0] = mat1[i][0];
             sumMat[k][1] = mat1[i][1];
+
+
             sumMat[k][2] = mat1[i][2];
             i++;
             break;
+
         case '>':
             sumMat[k][0] = mat2[j][0];
             sumMat[k][1] = mat2[j][1];
+
+
             sumMat[k][2] = mat2[j][2];
             j++;
             break;
