@@ -159,8 +159,8 @@ void insertAtPosition()
     p->data = insertee_data;
     p->next = 0;
 
-    int i = 1;
-    while (i < pos - 1)
+    int i = 0;
+    while (i < pos-1)
     {
         temp = temp->next;
         i++;
