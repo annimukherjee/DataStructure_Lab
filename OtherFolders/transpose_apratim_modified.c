@@ -34,9 +34,7 @@ void read(struct Element mat[], int *m, int *n, int *nz)
 
     printf("Enter the elements (row, column, value):\n");
     for (int i = 0; i < *nz; i++)
-    {
         scanf("%d %d %d", &mat[i].row, &mat[i].col, &mat[i].value);
-    }
 }
 
 void transpose(struct Element mat[], struct Element t[], int m, int n, int nz)
@@ -58,9 +56,7 @@ void display(struct Element matrix[], int nz)
 
     printf("Sparse Matrix (row, column, value):\n");
     for (int i = 0; i < nz; i++)
-    {
         printf("%d %d %d\n", matrix[i].row, matrix[i].col, matrix[i].value); // print the elements
-    }
 }
 
 int main()
