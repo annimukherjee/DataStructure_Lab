@@ -18,17 +18,15 @@ void create_the_LinkedList()
 
     if (start == NULL)
     {
-        /* code */
-
         // i/p of number of nodes
         int n; // Stores the number of nodes to be created.
-        printf("Enter the number of nodes to be created:\n");
-        scanf("%d", &n); 
+        printf("Enter the number of nodes to be created: ");
+        scanf("%d", &n);
 
         start = (node *)malloc(sizeof(node)); // Allocate memory to start which was previously NULL.
 
         // i/p of data of 1st node
-        printf("Enter the data to be stored in the 0th node:\n");
+        printf("Enter data @ 0th node: ");
         scanf("%d", &data_member);
 
         start->data = data_member;
@@ -41,7 +39,7 @@ void create_the_LinkedList()
         {
             newnode = (node *)malloc(sizeof(node));
 
-            printf("Enter data for node %d:\n", i);
+            printf("Data @ node %d: ", i);
             scanf("%d", &data_member);
 
             newnode->data = data_member;
@@ -70,30 +68,28 @@ void traverse()
     else
     {
         int memory = 0;
-        printf("Display with memory locations [1]\nDisplay without memory locations [0]\n-->");
+        printf("[1]-Display with memory locations\n[0]-Display without memory locations\n-->");
         scanf("%d", &memory);
         while (temp != NULL)
         {
             if (memory == 0)
             {
                 printf("\n");
-                printf("Data %d: %d-----\n", counter, temp->data);
+                printf("Data %d: %d-----", counter, temp->data);
                 temp = temp->next;
                 counter++;
             }
             else if (memory == 1)
             {
                 printf("\n--------------\nData %d: %d\n", counter, temp->data);
-                printf("\nNode %d's previous memory loc: %p\n", counter, temp->prev);
+                printf("\nNode %d's-->prev: %p", counter, temp->prev);
                 printf("\nNode %d's current memory loc: %p\n", counter, temp);
-                printf("Node %d's next memory loc: %p\n", counter, temp->next);
+                printf("Node %d's-->next: %p\n", counter, temp->next);
                 temp = temp->next;
                 counter++;
             }
             else
-            {
-                printf("Invalid Input. Only 0 or 1 is accepted.");
-            }
+                printf("Invalid Input. Only 0 or 1 is accepted.\n");
         }
     }
 }
@@ -118,9 +114,7 @@ void insert_begin()
     p->prev = NULL;
 
     if (start == NULL)
-    {
         start = p;
-    }
     else
     {
         p->next = start;
@@ -150,9 +144,7 @@ void insert_end()
     else
     {
         while (temp->next != NULL)
-        {
             temp = temp->next;
-        }
 
         p->data = insertee_data;
         temp->next = p;
@@ -168,22 +160,18 @@ void insert_pos()
     node *temp = start;
     int insertee_data, pos;
 
-    printf("Enter the value and location at which you want to input the data:\n");
-    scanf("%d %d", &insertee_data, &pos);
+    printf("Enter position and data: ");
+    scanf("%d %d", &pos, &insertee_data);
     p->data = insertee_data;
     p->next = NULL;
     p->prev = NULL;
 
     if (start == NULL)
-    {
         start = p;
-    }
     else
     {
         for (int i = 0; i < pos - 1; i++)
-        {
             temp = temp->next;
-        }
 
         p->prev = temp;
         p->next = temp->next;
@@ -195,14 +183,12 @@ void delete()
 {
     node *temp;
     if (start == NULL)
-    {
         printf("List is empty\n");
-    }
     else
     {
         temp = start;
         start = start->next;
-        printf("The deleted data: %d\n", temp->data);
+        printf("The deleted data: %d---\n", temp->data);
         free(temp);
     }
 }
@@ -211,24 +197,20 @@ void delete_end()
 {
     node *temp = start;
     if (start == NULL)
-    {
         printf("Empty List\n");
-    }
     else if (temp->next == NULL)
     {
         start = NULL;
-        printf("Deleted data: %d", temp->data);
+        printf("Deleted data: %d---", temp->data);
         free(temp);
     }
     else
     {
         node *temp1;
         while (temp->next != NULL)
-        {
             temp = temp->next;
-        }
         temp1 = temp->prev;
-        printf("Deleted data: %d\n", temp->data);
+        printf("Deleted data: %d---\n", temp->data);
         temp = NULL;
         free(temp);
         temp1->next = NULL;
@@ -239,9 +221,7 @@ void delete_pos()
 {
     node *temp = start;
     if (start == NULL)
-    {
         printf("Empty list\n");
-    }
     else if (start->next == NULL)
     {
         start = NULL;
@@ -251,12 +231,10 @@ void delete_pos()
     else
     {
         int pos;
-        printf("Enter position from where it needs to be deleted:\n");
+        printf("Enter position from where data needs to be deleted: ");
         scanf("%d", &pos);
         for (int i = 0; i < pos; i++)
-        {
             temp = temp->next;
-        }
         temp->prev->next = temp->next;
         temp->next->prev = temp->prev;
         printf("Data to be deleted:%d\n", temp->data);
@@ -272,9 +250,7 @@ void countNodes()
     if (start == NULL)
         count = 0;
     else if (temp->next == NULL)
-    {
         count = 1;
-    }
     else
     {
         while (temp != NULL)
@@ -298,13 +274,16 @@ void search()
     }
     else
     {
+        int pos = 0;
         while (temp->next != NULL)
         {
+
             if (temp->data == elem)
             {
-                printf("Found %d in the list successfully\n", elem);
-                exit(1);
+                printf("Found %d in the list successfully @ position %d\n", elem, pos);
+                return;
             }
+            pos++;
             temp = temp->next;
         }
     }
@@ -316,7 +295,7 @@ int main()
     while (key == 1)
     {
         printf("\n\n----\n\n");
-        printf("1.Create a Node\n2.Display the list\n3.Insert the element at beginning\n4.Insert the element at the end\n5.Insert the element at specific position\n6.Delete the element from the beginning\n7.Delete the element from the end\n8.Delete the element from specific position\n9.Count the total number of nodes\n10.Search an element in the linked list\n11.Exit");
+        printf("1. Create a Node\n2. Display the list\n\n3. Insert the element at beginning\n4. Insert the element at the end\n5. Insert the element at specific position\n\n6. Delete the element from the beginning\n7. Delete the element from the end\n8. Delete the element from specific position\n\n9. Count the total number of nodes\n10. Search an element in the linked list\n11. Exit");
         printf("\nEnter choice:\n");
         int ch;
         scanf("%d", &ch);
