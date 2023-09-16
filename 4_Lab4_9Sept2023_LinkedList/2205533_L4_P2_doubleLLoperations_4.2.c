@@ -23,7 +23,7 @@ void create_the_LinkedList()
         // i/p of number of nodes
         int n; // Stores the number of nodes to be created.
         printf("Enter the number of nodes to be created:\n");
-        scanf("%d", &n);
+        scanf("%d", &n); 
 
         start = (node *)malloc(sizeof(node)); // Allocate memory to start which was previously NULL.
 
@@ -180,7 +180,7 @@ void insert_pos()
     }
     else
     {
-        for (int i = 0; i < pos-1; i++)
+        for (int i = 0; i < pos - 1; i++)
         {
             temp = temp->next;
         }

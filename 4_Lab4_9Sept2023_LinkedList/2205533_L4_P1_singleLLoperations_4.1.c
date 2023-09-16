@@ -19,8 +19,6 @@ void create_the_LinkedList()
 
     if (start == NULL)
     {
-        /* code */
-
         // i/p of number of nodes
         int n; // Stores the number of nodes to be created.
         printf("Enter the number of nodes to be created:\n");
