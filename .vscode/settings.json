@@ -1,5 +1,11 @@
 {
   "files.associations": {
-    "__node_handle": "c"
+    "__node_handle": "c",
+    "stdlib.h": "c",
+    "stdio.h": "c",
+    "__locale": "c",
+    "string.h": "c",
+    "ctype.h": "c",
+    "stdbool.h": "c"
   }
 }

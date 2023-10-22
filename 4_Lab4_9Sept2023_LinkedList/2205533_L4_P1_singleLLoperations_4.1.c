@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// struct headerNode
+// {
+//     int length;
+//     struct headerNode* next;
+    
+// }hn;
+
+
+
 struct LinkedList
 {
     int data;
@@ -10,6 +19,10 @@ struct LinkedList
 typedef struct LinkedList node;
 
 node *start = NULL;
+
+
+// hn.next = start;
+
 
 // Func Num: 1 --------------------------------------------------------
 void create_LinkedList()
