@@ -1,6 +1,6 @@
 # Data Structures Laboratory Code
 
-This repository contains the code for the 1 credit Data Structures Laboratory course.
+This repository contains the code for the **4 credit** Data Structures Laboratory course.
 
 Course Faculty: Prof. Chittaranjan Pradhan
 
@@ -14,8 +14,15 @@ Email: [chittaranjanfcs@kiit.ac.in](mailto:chittaranjanfcs@kiit.ac.in)
 - The pdf is in the repo.
 
 <aside>
-⚙ See the code
-
+⚙ Check out the code
 </aside>
+
+Stuff covered 
+- Dynamic Memory Alloc
+- Arrays
+- Linked Lists
+- Stacks
+- Queues
+
 
 ---
