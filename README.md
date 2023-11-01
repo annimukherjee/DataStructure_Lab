@@ -14,8 +14,15 @@ Email: [chittaranjanfcs@kiit.ac.in](mailto:chittaranjanfcs@kiit.ac.in)
 - The pdf is in the repo.
 
 <aside>
-⚙ See the code
-
+⚙ Check out the code
 </aside>
+
+Stuff covered 
+- Dynamic Memory Alloc
+- Arrays
+- Linked Lists
+- Stacks
+- Queues
+
 
 ---
