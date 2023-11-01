@@ -1,6 +1,6 @@
 # Data Structures Laboratory Code
 
-This repository contains the code for the 1 credit Data Structures Laboratory course.
+This repository contains the code for the **4 credit** Data Structures Laboratory course.
 
 Course Faculty: Prof. Chittaranjan Pradhan
 
