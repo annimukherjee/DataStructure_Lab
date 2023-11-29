@@ -1,10 +1,9 @@
-// 7.3 Write a menu driven program to implement of Circular queue operations using array. The operation 
-// are such as :-  
-// 1.  Insert  
-// 2.  Delete  
-// 3.  Display 
-// 4.  Exit 
-
+// 7.3 Write a menu driven program to implement of Circular queue operations using array. The operation
+// are such as :-
+// 1.  Insert
+// 2.  Delete
+// 3.  Display
+// 4.  Exit
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -105,7 +104,7 @@ int main()
 {
     int c = 1;
     int ch = 0;
-    while (c = 1)
+    while (c == 1)
     {
         printf("\n1.Insert\n2.Delete\n3.Print\n4.Exit\nEnter choice:\n");
         scanf("%d", &ch);
