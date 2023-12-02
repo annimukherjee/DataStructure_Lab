@@ -60,6 +60,7 @@ int main()
 t_node *CreateNewNode(int value)
 {
     t_node *newNode = (t_node *)malloc(sizeof(t_node));
+
     if (newNode == NULL)
     {
         printf("Memory allocation failed!\n");
@@ -79,19 +80,19 @@ t_node *InsertNode(t_node *currNode, int value)
         currNode = CreateNewNode(value);
         nodeCount++;
     }
+
     else if (nodeCount % 2 == 0)
-    {
         currNode->leftChild = InsertNode(currNode->leftChild, value);
-    }
+    
     else
-    {
         currNode->rightChild = InsertNode(currNode->rightChild, value);
-    }
+    
     return currNode;
 }
 
 void f_preOrder(t_node *currNode)
 {
+    // TLR
     if (currNode != NULL)
     {
         printf("%d\n", currNode->value);
@@ -102,6 +103,7 @@ void f_preOrder(t_node *currNode)
 
 void f_inOrder(t_node *currNode)
 {
+    // LTR
     if (currNode != NULL)
     {
         f_inOrder(currNode->leftChild);
@@ -112,6 +114,7 @@ void f_inOrder(t_node *currNode)
 
 void f_postOrder(t_node *currNode)
 {
+    // LRT
     if (currNode != NULL)
     {
         f_postOrder(currNode->leftChild);

@@ -1,3 +1,4 @@
+//  BINARY SEARCH TREE
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -9,213 +10,30 @@ struct BinarySearchTree
 };
 
 typedef struct BinarySearchTree Node;
+
 Node *rootNode = NULL;
 
+Node *insertNode(Node *currentNode, int val);
+
+void traversePreOrder(Node *currentNode);
+void traverseInOrder(Node *currentNode);
+void traversePostOrder(Node *currentNode);
+
+bool searchNode(Node *node, int target);
+Node *deleteNode(Node *node, int target);
+void destroyTree(Node *node);
+
+int countTotalNodes(Node *node);
+int countLeafNodes(Node *node);
+int countInternalNodes(Node *node);
+
+int calculateHeight(Node *node);
 int findLargest(Node *node);
 int findSmallest(Node *node);
 
-Node *insertNode(Node *currentNode, int val)
-{
-    if (currentNode == NULL)
-    {
-        currentNode = (Node *)malloc(sizeof(Node));
-        currentNode->left = NULL;
-        currentNode->right = NULL;
-        currentNode->value = val;
-    }
-    else if (val < currentNode->value)
-    {
-        currentNode->left = insertNode(currentNode->left, val);
-    }
-    else if (val > currentNode->value)
-    {
-        currentNode->right = insertNode(currentNode->right, val);
-    }
-    return currentNode;
-}
-
-void traversePreOrder(Node *currentNode)
-{
-    if (currentNode != NULL)
-    {
-        printf("%d\n", currentNode->value);
-        traversePreOrder(currentNode->left);
-        traversePreOrder(currentNode->right);
-    }
-}
-
-void traverseInOrder(Node *currentNode)
-{
-    if (currentNode != NULL)
-    {
-        traverseInOrder(currentNode->left);
-        printf("%d \n", currentNode->value);
-        traverseInOrder(currentNode->right);
-    }
-}
-
-void traversePostOrder(Node *currentNode)
-{
-    if (currentNode != NULL)
-    {
-        traversePostOrder(currentNode->left);
-        traversePostOrder(currentNode->right);
-        printf("%d \n", currentNode->value);
-    }
-}
-
-bool searchNode(Node *node, int target)
-{
-    if (node == NULL)
-    {
-        printf("%d not found.\n", target);
-        return false;
-    }
-
-    if (target == node->value)
-    {
-        printf("%d has been found.\n", target);
-        return true;
-    }
-    else if (target < node->value)
-    {
-        return searchNode(node->left, target);
-    }
-    else
-    {
-        return searchNode(node->right, target);
-    }
-}
-
-Node *deleteNode(Node *node, int target)
-{
-    if (node == NULL)
-    {
-        printf("%d is not found.\n", target);
-        return node;
-    }
-
-    if (target < node->value)
-    {
-        node->left = deleteNode(node->left, target);
-    }
-    else if (target > node->value)
-    {
-        node->right = deleteNode(node->right, target);
-    }
-    else
-    {
-        if (node->left == NULL)
-        {
-            Node *temp = node->right;
-            free(node);
-            return temp;
-        }
-        else if (node->right == NULL)
-        {
-            Node *temp = node->left;
-            free(node);
-            return temp;
-        }
-
-        Node *temp = node->right;
-        while (temp->left != NULL)
-        {
-            temp = temp->left;
-        }
-
-        node->value = temp->value;
-        node->right = deleteNode(node->right, temp->value);
-    }
-
-    return node;
-}
-
-void destroyTree(Node *node)
-{
-    if (node != NULL)
-    {
-        destroyTree(node->left);
-        destroyTree(node->right);
-        free(node);
-    }
-}
-
-int countTotalNodes(Node *node)
-{
-    if (node == NULL)
-    {
-        return 0;
-    }
-    else
-    {
-        return (countTotalNodes(node->left) + countTotalNodes(node->right) + 1);
-    }
-}
-
-int countLeafNodes(Node *node)
-{
-    if (node == NULL)
-    {
-        return 0;
-    }
-    else if (node->left == NULL && node->right == NULL)
-    {
-        return 1;
-    }
-    else
-    {
-        return countLeafNodes(node->left) + countLeafNodes(node->right);
-    }
-}
-
-int countInternalNodes(Node *node)
-{
-    if (node == NULL || (node->left == NULL && node->right == NULL))
-    {
-        return 0;
-    }
-    else
-    {
-        return countInternalNodes(node->left) + countInternalNodes(node->right) + 1;
-    }
-}
-
-int calculateHeight(Node *node)
-{
-    if (node == NULL)
-    {
-        return 0;
-    }
-    else
-    {
-        int leftHeight = calculateHeight(node->left);
-        int rightHeight = calculateHeight(node->right);
-        return (leftHeight > rightHeight) ? (leftHeight + 1) : (rightHeight + 1);
-    }
-}
-
-int findLargest(Node *node)
-{
-    while (node->right != NULL)
-    {
-        node = node->right;
-    }
-    return node->value;
-}
-
-int findSmallest(Node *node)
-{
-    while (node->left != NULL)
-    {
-        node = node->left;
-    }
-    return node->value;
-}
-
 int main()
 {
-    printf("Hello! Welcome to my program.\n");
+    printf("Hello! Welcome to BST program.\n");
     int choice, num;
     do
     {
@@ -287,4 +105,204 @@ int main()
     } while (choice != 14);
 
     return 0;
+}
+
+Node *insertNode(Node *currentNode, int val)
+{
+    if (currentNode == NULL)
+    {
+        currentNode = (Node *)malloc(sizeof(Node));
+        currentNode->left = NULL;
+        currentNode->right = NULL;
+        currentNode->value = val;
+    }
+
+    else if (val < currentNode->value)
+    {
+        Node *leftNode = currentNode->left;
+        leftNode = insertNode(leftNode, val);
+    }
+
+    else if (val > currentNode->value)
+    {
+        Node *rightNode = currentNode->right;
+        rightNode = insertNode(rightNode, val);
+    }
+
+    return currentNode;
+}
+
+// ------------------------------
+
+void traversePreOrder(Node *currentNode)
+{
+    // TLR
+    if (currentNode != NULL)
+    {
+        printf("%d\n", currentNode->value);
+        traversePreOrder(currentNode->left);
+        traversePreOrder(currentNode->right);
+    }
+}
+
+void traverseInOrder(Node *currentNode)
+{
+    // LTR
+    if (currentNode != NULL)
+    {
+        traverseInOrder(currentNode->left);
+        printf("%d \n", currentNode->value);
+        traverseInOrder(currentNode->right);
+    }
+}
+
+void traversePostOrder(Node *currentNode)
+{
+    // LRT
+    if (currentNode != NULL)
+    {
+        traversePostOrder(currentNode->left);
+        traversePostOrder(currentNode->right);
+        printf("%d \n", currentNode->value);
+    }
+}
+
+// ------------------------------
+
+bool searchNode(Node *node, int target)
+{
+    if (node == NULL)
+    {
+        printf("%d not found.\n", target);
+        return false;
+    }
+
+    if (target == (node->value))
+    {
+        printf("%d has been found.\n", target);
+        return true;
+    }
+
+    else if (target < (node->value))
+        return searchNode(node->left, target);
+
+    else
+        return searchNode(node->right, target);
+}
+
+Node *deleteNode(Node *node, int target)
+{
+    if (node == NULL)
+    {
+        printf("%d is not found.\n", target);
+        return node;
+    }
+
+    if (target < node->value)
+        node->left = deleteNode(node->left, target);
+
+    else if (target > node->value)
+        node->right = deleteNode(node->right, target);
+
+    else
+    {
+        if (node->left == NULL)
+        {
+            Node *temp = node->right;
+            free(node);
+            return temp;
+        }
+
+        // Case 3: The node to be deleted has no right child
+        else if (node->right == NULL)
+        {
+            Node *temp = node->left;
+            free(node);
+            return temp;
+        }
+
+        // Case 4: The node to be deleted has both left and right children
+        // Find the minimum value in the right subtree
+        Node *temp = node->right;
+        while (temp->left != NULL)
+            temp = temp->left;
+
+        node->value = temp->value;
+        node->right = deleteNode(node->right, temp->value);
+    }
+
+    return node;
+}
+
+void destroyTree(Node *node)
+{
+    if (node != NULL)
+    {
+        destroyTree(node->left);
+        destroyTree(node->right);
+        free(node);
+    }
+}
+
+// ------------------------------
+
+int countTotalNodes(Node *node)
+{
+    if (node == NULL)
+        return 0;
+
+    else
+        return (countTotalNodes(node->left) + countTotalNodes(node->right) + 1);
+}
+
+int countLeafNodes(Node *node)
+{
+    if (node == NULL)
+        return 0;
+
+    else if (node->left == NULL && node->right == NULL)
+        return 1;
+
+    else
+        return countLeafNodes(node->left) + countLeafNodes(node->right);
+}
+
+int countInternalNodes(Node *node)
+{
+    if (node == NULL || (node->left == NULL && node->right == NULL))
+        return 0;
+
+    else
+        return countInternalNodes(node->left) + countInternalNodes(node->right) + 1;
+}
+
+// ------------------------------
+
+int calculateHeight(Node *node)
+{
+    if (node == NULL)
+        return 0;
+    
+    else
+    {
+        int leftHeight = calculateHeight(node->left);
+        int rightHeight = calculateHeight(node->right);
+        return (leftHeight > rightHeight) ? (leftHeight + 1) : (rightHeight + 1);
+    }
+}
+
+int findLargest(Node *node)
+{
+    while (node->right != NULL)
+        node = node->right;
+    
+    return node->value;
+}
+
+int findSmallest(Node *node)
+{
+    while (node->left != NULL)
+        node = node->left;
+    
+    return node->value;
 }

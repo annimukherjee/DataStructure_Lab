@@ -66,9 +66,8 @@ void enqueue_with_priority(int value)
         return;
     }
     else
-    {
         sort_insertion(value);
-    }
+    
     rear++;
 }
 
@@ -80,14 +79,16 @@ void sort_insertion(int value)
         if (value >= priorityQueue[i])
         {
             for (j = rear + 1; j > i; j--)
-            {
                 priorityQueue[j] = priorityQueue[j - 1];
-            }
+            
+            
             priorityQueue[i] = value;
             return;
         }
     }
-    priorityQueue[i] = value;
+    priorityQueue[i] = value; 
+    // handles the case where the new value has the lowest priority and hence is placed at the end of the queue.
+
 }
 
 void dequeue_with_priority(int value)
@@ -103,21 +104,20 @@ void dequeue_with_priority(int value)
         if (value == priorityQueue[i])
         {
             for (; i < rear; i++)
-            {
                 priorityQueue[i] = priorityQueue[i + 1];
-            }
+            
             priorityQueue[i] = -1; // Representing an empty space with -1
             rear--;
 
             if (rear == -1)
-            {
                 front = -1;
-            }
+            
             return;
         }
     }
     printf("\nValue %d is not in the queue to be dequeued.\n", value);
 }
+
 
 void display_priority_queue()
 {

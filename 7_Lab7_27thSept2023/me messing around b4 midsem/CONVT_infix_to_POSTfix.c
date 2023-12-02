@@ -190,12 +190,12 @@ int main()
             // while (precedence(stack[top]) >= precedence(*e))
             while (precedence(*e) <= precedence(stack[top]))
                 printf("%c ", pop());
-                
+
             push(*e);
         }
         e++;
     }
-    
+
     while (top != -1)
         printf("%c", pop());
 

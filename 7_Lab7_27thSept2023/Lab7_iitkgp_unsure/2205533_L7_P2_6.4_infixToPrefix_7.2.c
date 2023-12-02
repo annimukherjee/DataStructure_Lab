@@ -9,8 +9,19 @@
 char stack[SIZE];
 int top = -1;
 
-void push(char elem);
-char pop();
+void push(char elem)
+{
+    stack[++top] = elem;
+}
+
+char pop()
+{
+    return stack[top--];
+}
+
+
+// void push(char elem);
+// char pop();
 int precedence(char elem);
 
 void convertToPrefix(char *infix, char *prefix);
@@ -30,15 +41,7 @@ int main()
     return 0;
 }
 
-void push(char elem)
-{
-    stack[++top] = elem;
-}
 
-char pop()
-{
-    return stack[top--];
-}
 
 int precedence(char elem)
 {
@@ -82,6 +85,7 @@ void convertToPrefix(char *infix, char *prefix)
 
             elem = pop();
         }
+        
         else
         {
             while (precedence(stack[top]) >= precedence(ch))
